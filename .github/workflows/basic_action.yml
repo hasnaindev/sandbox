@@ -1,17 +1,18 @@
 name: "Basic Action"
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       app_name:
-        description: "Provide App's Name"
+        description: "Select App Name"
         type: string
         required: true
         default: ""
 
 jobs:
-  job:
+  basic_job:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Basic Step"
-        run: "echo \"${{ github.event.inputs.app_name }}\""
+        run: "echo Hello, \"${{ github.event.inputs.app_name || 'Push' }}\""

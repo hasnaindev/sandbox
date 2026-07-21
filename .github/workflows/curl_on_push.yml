@@ -1,0 +1,11 @@
+name: "Basic cURL Action"
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  basic-curl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Basic cURL"
+        run: "echo curl https://jsonplaceholder.typicode.com/todos/1"

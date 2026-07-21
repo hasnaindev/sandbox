@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Basic cURL"
-        run: "echo curl https://jsonplaceholder.typicode.com/todos/1"
+        run: curl -s https://jsonplaceholder.typicode.com/todos/1 | jq

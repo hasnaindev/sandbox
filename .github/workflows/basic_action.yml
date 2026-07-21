@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       app_name:
-        description: "App Name"
+        description: "Provide App's Name"
         type: string
         required: true
         default: ""
 
 jobs:
-  basic:
-    runs-on: ubuntu-latest
+  job:
+    runs-on: "ubuntu-latest"
     steps:
-      - name: "Outputs App Name"
-        run: echo "Hello \"${{ github.event.inputs.app_name }}\""
+      - name: "Basic Step"
+        run: "echo \"${{ github.event.inputs.app_name }}\""

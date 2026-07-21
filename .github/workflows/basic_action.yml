@@ -1,0 +1,17 @@
+name: "Basic Action"
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_name:
+        description: "App Name"
+        type: string
+        required: true
+        default: ""
+
+jobs:
+  basic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Outputs App Name"
+        run: echo "Hello \"${{ github.event.inputs.app_name }}\""

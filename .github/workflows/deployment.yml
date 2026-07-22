@@ -1,4 +1,4 @@
-name: Test Components
+name: Deployment
 on:
   push:
 
@@ -6,7 +6,7 @@ jobs:
   testing-components:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup code
+      - name: Setup Code
         uses: actions/checkout@v7
       - name: Setup Node
         uses: actions/setup-node@v7
@@ -18,3 +18,19 @@ jobs:
         run: npx playwright install --with-deps
       - name: Test Components
         run: npm run test
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Code
+        uses: actions/checkout@v7
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: latest
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        run: echo "Deploying ..."

@@ -1,14 +1,13 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
+import AppButton from './components/AppButton.vue';
 
 const count = ref(0)
 </script>
 
 <template>
   <h1>Sandbox App</h1>
-  <div>
-    <button @click="count++">Clicked {{ count }} Amount of Times!</button>
-  </div>
+  <div><AppButton @change="count++" :count="count" /></div>
 </template>
 
 <style scoped>

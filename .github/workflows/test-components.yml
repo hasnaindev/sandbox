@@ -1,0 +1,18 @@
+name: Test Components
+on:
+  push:
+
+jobs:
+  testing-components:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup code
+        run: actions/checkout@v7
+      - name: Setup Node
+        run: actions/setup-node@v7
+        with:
+          node-version: latest
+      - name: Install Dependencies
+        run: npm ci
+      - name: Test Components
+        run: npm run test
